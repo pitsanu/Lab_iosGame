@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    int counter;
+}
+
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
+- (IBAction)buttonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *mySlider;
+- (IBAction)sliderMoved:(id)sender;
 
 @end
