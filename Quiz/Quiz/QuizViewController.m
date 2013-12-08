@@ -17,7 +17,7 @@
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     // Call the init method implemented by the superclass
-    self = [super initWithNibName:<#nibNameOrNil#> bundle:<#nibBundleOrNil#>];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
         // Create two arrays and make the pointers point to them
@@ -35,8 +35,42 @@
         [answers addObject:@"Grapes"];
     }
     
-    // Return the address of the new object
+    // Return the address of the ®new object
     return self;
+}
+
+-(IBAction)showQuestion:(id)sender
+{
+    // Step to the next question
+    currentQuestionIndex++;
+    
+    // Am I past the last questions?
+    if(currentQuestionIndex == [questions count])
+    {
+        // Go back to the first question
+        currentQuestionIndex = 0;
+    }
+    
+    // Get the string at that index in the questions array
+    NSString *question = [questions objectAtIndex:currentQuestionIndex];
+    
+    // Log the string to the console
+    NSLog(@"displaying question: %@", question);
+    
+    // Display the string in the question field
+    [questionField setText:question];
+    
+    // Clear the answer field
+    [answerField setText:@"???"];
+}
+
+-(IBAction)showAnser:(id)sender
+{
+    // What is the answr to the current question?
+    NSString *answer = [answers objectAtIndex:currentQuestionIndex];
+    
+    // Display it in the answer field
+    [answerField setText:answer];
 }
 
 @end
