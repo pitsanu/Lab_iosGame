@@ -16,8 +16,12 @@
     NSDate *dateCreated;
 }
 
+// Class methods
++(id)randomItem;
+
 // Initializer
 -(id)initWithItemName:(NSString *)name valueInDollars:(int)value serialNumber:(NSString *)sNumber;
+-(id)initWithItemName:(NSString *)name;
 
 // Instance method
 -(void)setItemName:(NSString *)str;
@@ -30,5 +34,7 @@
 -(int)valueInDollars;
 
 -(NSDate *)dateCreated;
+
+//-(void)doSomethingWeird;
 
 @end
